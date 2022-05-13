@@ -28,12 +28,14 @@ class CategoriaController extends Controller
             ->paginate(7);
             return view('almacen.categoria.index',["categorias"=>$categorias,"searchText"=>$query]);
         }
+
+        return Categoria::all();
     }
     public function create()
     {
         return view("almacen.categoria.create");
     }
-    public function store (CategoriaFormRequest $request)
+    public function store ( $request)
     {
         $categoria=new Categoria;
         $categoria->nombre=$request->get('nombre');

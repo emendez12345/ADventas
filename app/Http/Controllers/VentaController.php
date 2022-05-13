@@ -35,7 +35,7 @@ class VentaController extends Controller
           //CREA UNA VARIABLE LA CUAL LE PASA LOS DATOS AGRUPADOS CON JOIN
           $ventas=DB::table('venta as v')
           //DATOS AGRUPADOS CON JOIN
-          ->join('persona as p','v.idcliente','=','p.idpersona')
+          ->join('persona as p','v.idpersona','=','p.idpersona')
           ->join('detalle_venta as dv','v.idventa','=','dv.idventa')
           ->select('v.idventa','v.fecha_hora','p.nombre','v.tipo_comprobante',
           'v.serie_comprobante','v.num_comprobante','v.impuesto','v.estado',
